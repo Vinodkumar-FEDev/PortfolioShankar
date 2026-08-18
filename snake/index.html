@@ -39,20 +39,20 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 32px 20px;
+      padding: 36px 20px;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
     .container {
-      max-width: 680px;
+      max-width: 640px;
       width: 100%;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
       animation: fadeIn 600ms var(--ease) both;
     }
 
@@ -80,7 +80,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--accent);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     }
 
     .badge-dot {
@@ -102,8 +102,8 @@
 
     p.subtext {
       color: var(--text-secondary);
-      font-size: 16px;
-      max-width: 520px;
+      font-size: 15.5px;
+      max-width: 500px;
     }
 
     .snake-card {
@@ -113,13 +113,13 @@
       padding: 16px;
       box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(230, 230, 227, 0.6);
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
       position: relative;
     }
 
     .snake-card:hover {
-      transform: translateY(-6px) scale(1.01);
+      transform: translateY(-4px);
       box-shadow: 0 28px 60px -15px rgba(20, 93, 160, 0.15);
     }
 
@@ -132,6 +132,12 @@
       position: relative;
     }
 
+    @media (max-width: 480px) {
+      .image-wrap {
+        height: 290px;
+      }
+    }
+
     .image-wrap img {
       width: 100%;
       height: 100%;
@@ -142,7 +148,7 @@
     }
 
     .snake-card:hover .image-wrap img {
-      transform: scale(1.04) rotate(1deg);
+      transform: scale(1.03);
     }
 
     .snake-meta {
@@ -230,21 +236,26 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 20px;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
       width: 100%;
       max-width: 360px;
       margin-top: 10px;
     }
 
-    canvas {
-      background: #111;
+    .game-section.active {
+      display: flex;
+    }
+
+    canvas#gameCanvas {
+      background: #111111;
       border-radius: 12px;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+      touch-action: none;
     }
 
     .score-board {
@@ -254,8 +265,39 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding: 0 8px;
+      padding: 0 4px;
       color: var(--text);
+    }
+
+    /* Mobile On-Screen D-Pad Controller */
+    .d-pad {
+      display: grid;
+      grid-template-columns: 48px 48px 48px;
+      grid-template-rows: 44px 44px;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .d-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background 150ms var(--ease), transform 150ms var(--ease);
+    }
+
+    .d-btn:active {
+      background: var(--accent-tint);
+      transform: scale(0.92);
+      border-color: var(--accent);
     }
   </style>
 </head>
@@ -294,36 +336,53 @@
       <button class="btn btn-secondary" id="toggleGameBtn" onclick="toggleSnakeGame()">Play Retro Snake 🎮</button>
     </div>
 
-    <!-- Mini Interactive Game -->
+    <!-- Mini Interactive Game with Desktop & Mobile Touch Controls -->
     <div class="game-section" id="gameSection">
       <div class="score-board">
         <span>Score: <span id="score">0</span></span>
-        <span style="font-size:12px; color:var(--text-secondary);">Use Arrow Keys or WASD</span>
+        <span style="font-size:12px; color:var(--text-secondary);">D-Pad / Arrows / WASD</span>
       </div>
-      <canvas id="gameCanvas" width="300" height="300"></canvas>
-      <button class="btn btn-secondary" style="padding:6px 16px; font-size:12px;" onclick="resetGame()">Restart Game</button>
+      <canvas id="gameCanvas" width="280" height="280"></canvas>
+
+      <!-- On-screen D-Pad for mobile & touch -->
+      <div class="d-pad">
+        <div></div>
+        <button class="d-btn" onclick="handleDirection('up')">⬆️</button>
+        <div></div>
+        <button class="d-btn" onclick="handleDirection('left')">⬅️</button>
+        <button class="d-btn" onclick="handleDirection('down')">⬇️</button>
+        <button class="d-btn" onclick="handleDirection('right')">➡️</button>
+      </div>
+
+      <button class="btn btn-secondary" style="padding:6px 16px; font-size:12px; margin-top:4px;" onclick="resetGame()">Restart Game 🔄</button>
     </div>
   </div>
 
   <script>
-    // Retro Mini Snake Game Easter Egg
+    // ---------- RETRO SNAKE GAME (WORKS ON CLICK ON MOBILE & DESKTOP) ----------
     let canvas, ctx;
     let gameInterval = null;
-    let grid = 15;
-    let count = 0;
+    let grid = 14;
     let score = 0;
-    let snake = { x: 150, y: 150, dx: grid, dy: 0, cells: [], maxCells: 4 };
-    let apple = { x: 60, y: 60 };
+    let snake = { x: 140, y: 140, dx: grid, dy: 0, cells: [], maxCells: 4 };
+    let apple = { x: 56, y: 56 };
 
     function toggleSnakeGame() {
       const sec = document.getElementById('gameSection');
-      if (sec.style.display === 'flex') {
-        sec.style.display = 'none';
-        clearInterval(gameInterval);
-        gameInterval = null;
+      const btn = document.getElementById('toggleGameBtn');
+
+      if (sec.classList.contains('active')) {
+        sec.classList.remove('active');
+        btn.innerText = 'Play Retro Snake 🎮';
+        if (gameInterval) {
+          clearInterval(gameInterval);
+          gameInterval = null;
+        }
       } else {
-        sec.style.display = 'flex';
+        sec.classList.add('active');
+        btn.innerText = 'Close Game ❌';
         initGame();
+        sec.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
 
@@ -331,9 +390,9 @@
       canvas = document.getElementById('gameCanvas');
       ctx = canvas.getContext('2d');
       resetGame();
-      if (!gameInterval) {
-        gameInterval = setInterval(gameLoop, 1000 / 12);
-      }
+
+      if (gameInterval) clearInterval(gameInterval);
+      gameInterval = setInterval(gameLoop, 1000 / 10);
     }
 
     function getRandomInt(min, max) {
@@ -342,9 +401,11 @@
 
     function resetGame() {
       score = 0;
-      document.getElementById('score').innerText = score;
-      snake.x = 150;
-      snake.y = 150;
+      const scoreElem = document.getElementById('score');
+      if (scoreElem) scoreElem.innerText = score;
+
+      snake.x = 140;
+      snake.y = 140;
       snake.cells = [];
       snake.maxCells = 4;
       snake.dx = grid;
@@ -353,7 +414,24 @@
       apple.y = getRandomInt(0, 20) * grid;
     }
 
+    function handleDirection(dir) {
+      if (dir === 'left' && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+      } else if (dir === 'up' && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+      } else if (dir === 'right' && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+      } else if (dir === 'down' && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+      }
+    }
+
     function gameLoop() {
+      if (!ctx || !canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       snake.x += snake.dx;
@@ -375,7 +453,7 @@
       // Draw apple
       ctx.fillStyle = '#EF4444';
       ctx.beginPath();
-      ctx.arc(apple.x + grid/2, apple.y + grid/2, grid/2 - 1, 0, Math.PI * 2);
+      ctx.arc(apple.x + grid / 2, apple.y + grid / 2, grid / 2 - 1, 0, Math.PI * 2);
       ctx.fill();
 
       // Draw snake
@@ -387,7 +465,8 @@
         if (cell.x === apple.x && cell.y === apple.y) {
           snake.maxCells++;
           score += 10;
-          document.getElementById('score').innerText = score;
+          const scoreElem = document.getElementById('score');
+          if (scoreElem) scoreElem.innerText = score;
           apple.x = getRandomInt(0, 20) * grid;
           apple.y = getRandomInt(0, 20) * grid;
         }
@@ -402,14 +481,15 @@
     }
 
     document.addEventListener('keydown', function (e) {
-      if (e.which === 37 || e.key === 'a') { // left
-        if (snake.dx === 0) { snake.dx = -grid; snake.dy = 0; }
-      } else if (e.which === 38 || e.key === 'w') { // up
-        if (snake.dy === 0) { snake.dy = -grid; snake.dx = 0; }
-      } else if (e.which === 39 || e.key === 'd') { // right
-        if (snake.dx === 0) { snake.dx = grid; snake.dy = 0; }
-      } else if (e.which === 40 || e.key === 's') { // down
-        if (snake.dy === 0) { snake.dy = grid; snake.dx = 0; }
+      const key = e.key.toLowerCase();
+      if (e.key === 'ArrowLeft' || key === 'a') {
+        handleDirection('left');
+      } else if (e.key === 'ArrowUp' || key === 'w') {
+        handleDirection('up');
+      } else if (e.key === 'ArrowRight' || key === 'd') {
+        handleDirection('right');
+      } else if (e.key === 'ArrowDown' || key === 's') {
+        handleDirection('down');
       }
     });
   </script>
