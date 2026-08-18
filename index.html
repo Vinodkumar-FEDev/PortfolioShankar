@@ -418,7 +418,7 @@
     .hero h1 {
       font-family: 'Manrope', sans-serif;
       font-weight: 700;
-      font-size: clamp(34px, 5.2vw, 76px);
+      font-size: clamp(34px, 5.2vw, 55px);
       line-height: 1.06;
       letter-spacing: -0.02em;
       max-width: 860px;
@@ -591,7 +591,7 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
 
     .profile-status-badge .status-dot {
@@ -679,6 +679,7 @@
       line-height: 1.12;
       letter-spacing: -0.015em;
       margin-top: 16px;
+      margin-bottom: 16px;
     }
 
     .section-head p {
@@ -834,20 +835,36 @@
     /* ---------- Project Visuals ---------- */
     .project-visual {
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 18px;
       background: var(--surface);
-      padding: 28px;
-      min-height: 340px;
+      overflow: hidden;
+      min-height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      transition: transform 400ms var(--ease), box-shadow 400ms var(--ease);
+      position: relative;
+      transition: transform 400ms var(--ease), box-shadow 400ms var(--ease), border-color 400ms var(--ease);
     }
 
     .project:hover .project-visual {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px -8px rgba(20, 93, 160, 0.09);
+      border-color: rgba(20, 93, 160, 0.25);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      max-height: 420px;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 600ms var(--ease);
+    }
+
+    .project:hover .project-img {
+      transform: scale(1.025);
     }
 
     .mock {
@@ -869,7 +886,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
     }
 
     .mock-mobile .bar {
@@ -1540,12 +1557,14 @@
 
       <div class="nav-right">
         <div class="nav-social-links">
-          <a href="http://dribbble.com/shankarnagarajan" target="_blank" rel="noopener noreferrer">Dribbble ↗</a>
-          <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          <!-- <a href="http://dribbble.com/shankarnagarajan" target="_blank" rel="noopener noreferrer">Dribbble ↗</a>
+          <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank"
+            rel="noopener noreferrer">Instagram ↗</a> -->
         </div>
 
         <div class="nav-actions">
-          <a href="assets/Shankar_Nagarajan_Resume.pdf" download="Shankar_Nagarajan_Resume.pdf" class="nav-resume">Download Resume ↓</a>
+          <a href="assert/Shankar UI UX Resume.pdf" download="Shankar UI UX Resume.pdf"
+            class="nav-resume">Download Resume ↓</a>
           <a href="#contact" class="nav-cta">Let's Talk ↗</a>
         </div>
 
@@ -1562,12 +1581,14 @@
     <a href="#about">About</a>
     <a href="#expertise">Expertise</a>
     <a href="#experience">Experience</a>
-    <a href="assets/Shankar_Nagarajan_Resume.pdf" download="Shankar_Nagarajan_Resume.pdf" class="nav-resume" style="align-self: flex-start;">Download Resume ↓</a>
+    <a href="assert/Shankar UI UX Resume.pdf" download="Shankar UI UX Resume.pdf" class="nav-resume"
+      style="align-self: flex-start;">Download Resume ↓</a>
     <div class="mobile-social-row">
       <a href="https://www.behance.net/Shankarnagarajan" target="_blank" rel="noopener noreferrer">Behance ↗</a>
       <a href="https://www.linkedin.com/in/shankarn244/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       <a href="http://dribbble.com/shankarnagarajan" target="_blank" rel="noopener noreferrer">Dribbble ↗</a>
-      <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank"
+        rel="noopener noreferrer">Instagram ↗</a>
     </div>
     <a href="#contact" class="nav-cta">Let's Talk ↗</a>
   </div>
@@ -1586,13 +1607,16 @@
               clear interaction design.</p>
             <div class="hero-actions">
               <a href="#work" class="btn-primary">View Work ↓</a>
-              <a href="assets/Shankar_Nagarajan_Resume.pdf" download="Shankar_Nagarajan_Resume.pdf" class="btn-secondary">Download Resume ↓</a>
+              <a href="assert/Shankar UI UX Resume.pdf" download="Shankar UI UX Resume.pdf"
+                class="btn-secondary">Download Resume ↓</a>
             </div>
             <div class="hero-social">
               <a href="https://www.behance.net/Shankarnagarajan" target="_blank" rel="noopener noreferrer">Behance ↗</a>
-              <a href="https://www.linkedin.com/in/shankarn244/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+              <a href="https://www.linkedin.com/in/shankarn244/" target="_blank" rel="noopener noreferrer">LinkedIn
+                ↗</a>
               <a href="http://dribbble.com/shankarnagarajan" target="_blank" rel="noopener noreferrer">Dribbble ↗</a>
-              <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+              <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank"
+                rel="noopener noreferrer">Instagram ↗</a>
             </div>
           </div>
 
@@ -1600,7 +1624,8 @@
           <div class="hero-right-box">
             <div class="profile-card">
               <div class="profile-avatar-box">
-                <img src="assert/IMG_20250417_114410_265.webp" alt="Shankar Nagarajan — UI/UX Designer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <img src="assert/IMG_20250417_114410_265.webp" alt="Shankar Nagarajan — UI/UX Designer"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
                 <div class="avatar-placeholder" style="display:none;">SN</div>
                 <div class="profile-status-badge">
                   <span class="status-dot"></span> Available for projects
@@ -1658,180 +1683,15 @@
             <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
           </div>
           <div class="project-visual">
-            <div class="mock mock-mobile-wrap" style="display:flex; gap:16px; justify-content:center;">
-              <div class="mock-mobile">
-                <div class="bar short"></div>
-                <div class="card">
-                  <div class="bar"></div>
-                  <div class="bar short"></div>
-                  <div class="dot-row">
-                    <span class="dot filled"></span><span class="dot"></span><span class="dot"></span>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="bar short"></div>
-                  <div class="bar"></div>
-                </div>
-              </div>
-            </div>
+            <img src="assert/UX PROJECTS PORTFOLIO.png" alt="EV Battery Swapping Ecosystem — Multi-App Platform" class="project-img" />
           </div>
         </article>
 
-        <!-- Project 02: Laboratory Discovery & Test Booking Platform -->
+        <!-- Project 02: Fashion E-commerce Platform (Saree Website) -->
         <article class="project reverse reveal">
           <div class="project-info">
             <div class="project-header-meta">
               <span class="project-indicator">02</span>
-            </div>
-            <h3>Laboratory Discovery &amp; Test Booking Platform</h3>
-            <p class="project-desc">Designed a user-friendly laboratory discovery and test booking platform that helps users find tests, explore nearby laboratory services, book appointments, and receive reports digitally.</p>
-            <ul class="project-bullets">
-              <li>Planned 3 role-based experiences for Users, Admins, and Vendors, covering test discovery, bookings, laboratories, reports, and management workflows.</li>
-              <li>Simplified complex booking and test-discovery journeys, reducing task complexity by ~30% across key user flows through clearer information hierarchy and navigation.</li>
-              <li>Designed 50+ core screens across user-facing and management experiences, including search, test details, booking, reports, profiles, and administrative workflows.</li>
-              <li>Built a reusable Figma design system with 50+ components and variables, maintaining consistency across user, admin, and vendor experiences.</li>
-              <li>Created responsive web experiences with a focus on usability, accessibility, and clear task completion, while using AI-assisted workflows to explore alternative user flows and content structures.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="primary-tag">Booking</span>
-              <span>Healthcare / Labs</span>
-              <span>Web Platform</span>
-              <span>Design System</span>
-              <span>Admin &amp; Vendor</span>
-            </div>
-            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
-          </div>
-          <div class="project-visual">
-            <div class="mock mock-table">
-              <div class="trow head">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-              </div>
-              <div class="trow">
-                <div class="cell accent"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-              </div>
-              <div class="trow">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-              </div>
-              <div class="trow">
-                <div class="cell"></div>
-                <div class="cell accent"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-              </div>
-              <div class="trow">
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 03: Laboratory Products E-commerce Platform -->
-        <article class="project reveal">
-          <div class="project-info">
-            <div class="project-header-meta">
-              <span class="project-indicator">03</span>
-            </div>
-            <h3>Laboratory Products E-commerce Platform</h3>
-            <p class="project-desc">Designed an e-commerce platform for browsing and purchasing laboratory products, supported by dedicated Admin and Vendor portals for managing products, orders, inventory, payments, and business operations.</p>
-            <ul class="project-bullets">
-              <li>Structured 3 key experiences across Customers, Admins, and Vendors, connecting product discovery, purchasing, order management, and operational workflows.</li>
-              <li>Simplified product discovery and purchasing journeys, reducing task complexity by ~30% through intuitive navigation, clear product information, and streamlined interactions.</li>
-              <li>Designed 50+ core screens covering login, home, product listing, product details, orders, profiles, addresses, coupons, categories, payments, refunds, and vendor management.</li>
-              <li>Established a reusable design system with 50+ components and variables, allowing consistent UI patterns across customer and management portals.</li>
-              <li>Designed responsive experiences with emphasis on usability, accessibility, and scalable information architecture, while using AI-assisted workflows to explore layouts, content hierarchy, and alternative interaction patterns.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="primary-tag">E-commerce</span>
-              <span>SaaS</span>
-              <span>Admin Portal</span>
-              <span>Vendor Portal</span>
-              <span>Design System</span>
-            </div>
-            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
-          </div>
-          <div class="project-visual">
-            <div class="mock mock-dash">
-              <div class="side">
-                <div class="item active"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-              </div>
-              <div class="main">
-                <div class="row">
-                  <div class="tile">
-                    <div class="num"></div>
-                    <div class="lbl"></div>
-                  </div>
-                  <div class="tile">
-                    <div class="num"></div>
-                    <div class="lbl"></div>
-                  </div>
-                </div>
-                <div class="chart">
-                  <div class="bar" style="height:40%;"></div>
-                  <div class="bar" style="height:70%;"></div>
-                  <div class="bar" style="height:55%;"></div>
-                  <div class="bar" style="height:85%;"></div>
-                  <div class="bar" style="height:60%;"></div>
-                  <div class="bar" style="height:75%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 04: Cold Storage Booking Platform -->
-        <article class="project reverse reveal">
-          <div class="project-info">
-            <div class="project-header-meta">
-              <span class="project-indicator">04</span>
-            </div>
-            <h3>Freeze Fresh — Cold Storage Booking Platform (Concept Project)</h3>
-            <p class="project-desc">Contributed to a multi-application platform for an EV battery swapping ecosystem.</p>
-            <ul class="project-bullets">
-              <li>Conducted UX research and competitor analysis to understand cold-storage booking needs, user pain points, and existing booking patterns.</li>
-              <li>Designed end-to-end user journeys, information architecture, and wireframes for cold-storage discovery, facility comparison, availability, and booking.</li>
-              <li>Developed a scalable design system with reusable components, variables, and responsive UI patterns for a consistent experience.</li>
-              <li>Iterated on the experience through usability-focused design exploration, refining navigation, forms, CTAs, and overall booking flow.</li>
-            </ul>
-            <div class="project-tags">
-              <span class="primary-tag">Booking</span>
-              <span>Cold Chain</span>
-              <span>Concept Project</span>
-              <span>Responsive Web</span>
-              <span>Design System</span>
-            </div>
-            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
-          </div>
-          <div class="project-visual">
-            <div class="mock mock-form">
-              <div class="field"><span class="lbl"></span><span class="val"></span></div>
-              <div class="field"><span class="lbl"></span><span class="val"></span></div>
-              <div class="field"><span class="lbl"></span><span class="val" style="width:40%;"></span></div>
-              <span class="cta-bar">RESERVE SLOT</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 05: Fashion E-commerce Platform -->
-        <article class="project reveal">
-          <div class="project-info">
-            <div class="project-header-meta">
-              <span class="project-indicator">05</span>
             </div>
             <h3>E-commerce Platform – Saree Website</h3>
             <p class="project-desc">Designed the user experience for a South Indian saree e-commerce platform, focused on product discovery, visual browsing and product details.</p>
@@ -1852,28 +1712,93 @@
             <a href="https://www.behance.net/gallery/254403683/CHISEL-FABS-An-Elegant-Saree-E-Commerce-Experience?platform=direct" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
           </div>
           <div class="project-visual">
-            <div class="mock mock-cards">
-              <div class="c">
-                <div class="thumb"></div>
-                <div class="l1"></div>
-                <div class="l2"></div>
-              </div>
-              <div class="c">
-                <div class="thumb"></div>
-                <div class="l1"></div>
-                <div class="l2"></div>
-              </div>
-              <div class="c">
-                <div class="thumb"></div>
-                <div class="l1"></div>
-                <div class="l2"></div>
-              </div>
-              <div class="c">
-                <div class="thumb"></div>
-                <div class="l1"></div>
-                <div class="l2"></div>
-              </div>
+            <img src="assert/Chisel Fabs Presentation.jpeg" alt="Chisel Fabs — Saree E-Commerce Website" class="project-img" />
+          </div>
+        </article>
+
+        <!-- Project 03: Laboratory Discovery & Test Booking Platform -->
+        <article class="project reveal">
+          <div class="project-info">
+            <div class="project-header-meta">
+              <span class="project-indicator">03</span>
             </div>
+            <h3>Laboratory Discovery &amp; Test Booking Platform</h3>
+            <p class="project-desc">Designed a user-friendly laboratory discovery and test booking platform that helps users find tests, explore nearby laboratory services, book appointments, and receive reports digitally.</p>
+            <ul class="project-bullets">
+              <li>Designed 3 connected experiences for Users, Admins, and Vendors, supporting the complete journey from test discovery and booking to sample collection and report delivery.</li>
+              <li>Structured 6 test categories and a clear search-and-discovery experience, making it easier for users to understand available tests and choose the right service.</li>
+              <li>Simplified the multi-step testing journey, reducing task complexity by ~30% through clearer flows, progressive information, and focused booking interactions.</li>
+              <li>Mapped the complete 4-stage service journey — Test Selection → Booking → Sample Collection → Report — creating a consistent experience across the platform.</li>
+              <li>Designed 50+ screens and reusable UI patterns across customer, admin, and vendor workflows, covering bookings, test management, laboratories, reports, users, and operational activities.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="primary-tag">Booking</span>
+              <span>Healthcare / Labs</span>
+              <span>Web Platform</span>
+              <span>Design System</span>
+              <span>Admin &amp; Vendor</span>
+            </div>
+            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
+          </div>
+          <div class="project-visual">
+            <img src="assert/UX PROJECTS PORTFOLIO.png" alt="Laboratory Discovery &amp; Test Booking Platform" class="project-img" />
+          </div>
+        </article>
+
+        <!-- Project 04: Laboratory Products E-commerce Platform -->
+        <article class="project reverse reveal">
+          <div class="project-info">
+            <div class="project-header-meta">
+              <span class="project-indicator">04</span>
+            </div>
+            <h3>Laboratory Products E-commerce Platform</h3>
+            <p class="project-desc">Designed an e-commerce platform for browsing and purchasing laboratory products, supported by dedicated Admin and Vendor portals for managing products, orders, inventory, payments, and business operations.</p>
+            <ul class="project-bullets">
+              <li>Structured 3 key experiences across Customers, Admins, and Vendors, connecting product discovery, purchasing, order management, and operational workflows.</li>
+              <li>Simplified product discovery and purchasing journeys, reducing task complexity by ~30% through intuitive navigation, clear product information, and streamlined interactions.</li>
+              <li>Designed 50+ core screens covering login, home, product listing, product details, orders, profiles, addresses, coupons, categories, payments, refunds, and vendor management.</li>
+              <li>Established a reusable design system with 50+ components and variables, allowing consistent UI patterns across customer and management portals.</li>
+              <li>Designed responsive experiences with emphasis on usability, accessibility, and scalable information architecture, while using AI-assisted workflows to explore layouts, content hierarchy, and alternative interaction patterns.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="primary-tag">E-commerce</span>
+              <span>SaaS</span>
+              <span>Admin Portal</span>
+              <span>Vendor Portal</span>
+              <span>Design System</span>
+            </div>
+            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
+          </div>
+          <div class="project-visual">
+            <img src="assert/UX PROJECTS PORTFOLIO.png" alt="Laboratory Products E-commerce Platform" class="project-img" />
+          </div>
+        </article>
+
+        <!-- Project 05: Cold Storage Booking Platform -->
+        <article class="project reveal">
+          <div class="project-info">
+            <div class="project-header-meta">
+              <span class="project-indicator">05</span>
+            </div>
+            <h3>Freeze Fresh — Cold Storage Booking Platform (Concept Project)</h3>
+            <p class="project-desc">Contributed to a multi-application platform for an EV battery swapping ecosystem.</p>
+            <ul class="project-bullets">
+              <li>Conducted UX research and competitor analysis to understand cold-storage booking needs, user pain points, and existing booking patterns.</li>
+              <li>Designed end-to-end user journeys, information architecture, and wireframes for cold-storage discovery, facility comparison, availability, and booking.</li>
+              <li>Developed a scalable design system with reusable components, variables, and responsive UI patterns for a consistent experience.</li>
+              <li>Iterated on the experience through usability-focused design exploration, refining navigation, forms, CTAs, and overall booking flow.</li>
+            </ul>
+            <div class="project-tags">
+              <span class="primary-tag">Booking</span>
+              <span>Cold Chain</span>
+              <span>Concept Project</span>
+              <span>Responsive Web</span>
+              <span>Design System</span>
+            </div>
+            <a href="https://www.behance.net/gallery/254466657/UIUX-PROJECTS-PORTFOLIO" target="_blank" rel="noopener noreferrer" class="project-cta">Case Study Preview →</a>
+          </div>
+          <div class="project-visual">
+            <img src="assert/Slide 16_9 - 3.png" alt="Freeze Fresh — Cold Storage Booking Platform" class="project-img" />
           </div>
         </article>
 
@@ -2011,7 +1936,8 @@
           <div class="eyebrow">EXPERIENCE</div>
           <div>
             <h2>Where I've worked.</h2>
-            <p>Design roles and prior domain experience across enterprise systems, digital products, and operational environments.</p>
+            <p>Design roles and prior domain experience across enterprise systems, digital products, and operational
+              environments.</p>
           </div>
         </div>
 
@@ -2022,16 +1948,17 @@
           <div class="exp-item reveal">
             <div class="role">
               <h4>UI/UX Designer</h4>
-              <div class="org">Enterprise Technology Products</div>
+              <!-- <div class="org">Enterprise Technology Products</div> -->
             </div>
             <div class="date">Oct 2025 to Aug 2025</div>
-            <div class="focus">Enterprise UX · SaaS · E-commerce · EV Mobility · Operational Dashboards · Reusable UI Design Systems</div>
+            <div class="focus">Enterprise UX · SaaS · E-commerce · EV Mobility · Operational Dashboards · Reusable UI
+              Design Systems</div>
           </div>
 
           <div class="exp-item reveal">
             <div class="role">
               <h4>UI/UX Designer Intern</h4>
-              <div class="org">EV Mobility &amp; Digital Product Experiences</div>
+              <!-- <div class="org">EV Mobility &amp; Digital Product Experiences</div> -->
             </div>
             <div class="date">Jun 2025 to Oct 2025</div>
             <div class="focus">Mobile Apps · Operations · Workflows · Wireframing &amp; Design Systems</div>
@@ -2048,7 +1975,8 @@
               <div class="org">Freelance</div>
             </div>
             <div class="date">Jan 2024 to Mar 2025</div>
-            <div class="focus">Client support, operations management, financial services coordination, and workflow execution.</div>
+            <div class="focus">Client support, operations management, financial services coordination, and workflow
+              execution.</div>
           </div>
 
           <div class="exp-item reveal">
@@ -2057,7 +1985,8 @@
               <div class="org">Associate</div>
             </div>
             <div class="date">Jul 2023 to Dec 2023</div>
-            <div class="focus">Customer service operations, ticketing, technical correspondence, and process support.</div>
+            <div class="focus">Customer service operations, ticketing, technical correspondence, and process support.
+            </div>
           </div>
 
           <div class="exp-item reveal">
@@ -2066,7 +1995,8 @@
               <div class="org">Senior Representative</div>
             </div>
             <div class="date">Oct 2021 to Apr 2023</div>
-            <div class="focus">Business process services, client communication, transaction processing, SLA adherence, and team collaboration.</div>
+            <div class="focus">Business process services, client communication, transaction processing, SLA adherence,
+              and team collaboration.</div>
           </div>
         </div>
 
@@ -2127,8 +2057,9 @@
                   target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></span></div>
             <div><span class="k">Dribbble</span><span class="v"><a href="http://dribbble.com/shankarnagarajan"
                   target="_blank" rel="noopener noreferrer">Dribbble ↗</a></span></div>
-            <div><span class="k">Instagram</span><span class="v"><a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0"
-                  target="_blank" rel="noopener noreferrer">Instagram ↗</a></span></div>
+            <div><span class="k">Instagram</span><span class="v"><a
+                  href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank"
+                  rel="noopener noreferrer">Instagram ↗</a></span></div>
           </div>
         </div>
       </div>
@@ -2148,7 +2079,8 @@
           <a href="https://www.behance.net/Shankarnagarajan" target="_blank" rel="noopener noreferrer">Behance ↗</a>
           <a href="https://www.linkedin.com/in/shankarn244/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           <a href="http://dribbble.com/shankarnagarajan" target="_blank" rel="noopener noreferrer">Dribbble ↗</a>
-          <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          <a href="https://www.instagram.com/shankar__ui__ux__?igsh=eGN5cngydmc2eTQ0" target="_blank"
+            rel="noopener noreferrer">Instagram ↗</a>
         </div>
       </div>
       <div class="footer-bottom">
